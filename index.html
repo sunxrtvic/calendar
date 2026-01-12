@@ -37,7 +37,7 @@ table {
     table-layout: fixed;
     box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
     background-color: #fff;
-    position: relative;
+    position: absolute;
 
 
 }
@@ -125,7 +125,7 @@ td > span:hover {
     width: 30px;
     vertical-align: middle;
     border-radius: 100%;
-    position: relative;
+    position: absolute;
     top: 15px;
 }
 .boto-next { right: 10px; padding-left: 13px; }
@@ -150,6 +150,87 @@ footer a,
 footer a:link {
   color: #fff;
   text-decoration: none;
+}
+		/* === AJUSTE RESPONSIVE PARA NOTION === */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#calendari {
+  width: 100%;
+  max-width: 100%;
+}
+
+table {
+  position: relative;   /* sobrescribe el absolute */
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
+}
+
+th, td {
+  padding: 0;
+}
+
+td > span {
+  padding: 6px;
+  font-size: 0.85rem;
+}
+
+tr:first-child th {
+  font-size: 1rem;
+}
+
+th .any {
+  font-size: 0.75rem;
+}
+
+.boto-next, .boto-prev {
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  top: 10px;
+}
+/* === MEJORAR ESPACIADO DEL TÍTULO === */
+tr:first-child th {
+  padding: 14px 8px;     /* más aire arriba/abajo */
+  line-height: 1.2;
+}
+
+tr:first-child th > span {
+  display: inline-block;
+  margin-top: 4px;
+}
+
+th .any {
+  margin-top: 2px;
+}
+
+/* === CENTRAR BOTONES DE NAVEGACIÓN === */
+tr:first-child th {
+  position: relative; /* referencia para los botones */
+}
+
+.boto-prev,
+.boto-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.boto-prev {
+  left: 8px;
+}
+
+.boto-next {
+  right: 8px;
 }
 
     </style>
@@ -333,3 +414,8 @@ calendari(document.getElementById('calendari'), new Date());
     </script>
 </body>
 </html>
+
+    </script>
+</body>
+</html>
+
