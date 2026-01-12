@@ -151,6 +151,49 @@ footer a:link {
   color: #fff;
   text-decoration: none;
 }
+		/* === FIX PARA NOTION === */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#calendari {
+  width: 100%;
+  max-width: 100%;
+}
+
+table {
+  position: relative;   /* ← clave */
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
+}
+
+th, td {
+  padding: 0;
+}
+
+td > span {
+  padding: 6px;
+  font-size: 0.85rem;
+}
+
+tr:first-child th {
+  font-size: 1rem;
+}
+
+th .any {
+  font-size: 0.75rem;
+}
+
+.boto-next, .boto-prev {
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  top: 10px;
+}
     </style>
 </head>
 <body>
@@ -332,3 +375,4 @@ calendari(document.getElementById('calendari'), new Date());
     </script>
 </body>
 </html>
+
