@@ -38,8 +38,6 @@ table {
     box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
     background-color: #fff;
     position: absolute;
-
-
 }
 
 
@@ -63,8 +61,7 @@ td:last-child, th:last-child {
 th {
     border-top: 1px solid rgba(0,0,0,0.1);
     border-right: 1px solid rgba(0,0,0,0.1);
-    background-color: #96ba96
-;
+    background-color: #96ba96;
     color: #fff;
     text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
     font-weight: normal;
@@ -111,6 +108,7 @@ td > span:hover {
     background: #96ba96;
     color: #fff;
 }
+/* Botones eliminados, por lo tanto se puede quitar su estilo
 .boto-next, .boto-prev {
     background: rgba(0,0,0,0.1);
     color: #fff;
@@ -133,7 +131,7 @@ td > span:hover {
 .boto-next:hover,
 .boto-prev:hover {
     background: rgba(0,0,0,0.2);
-}
+} */
 button:hover { cursor: pointer; }
 button:focus { outline: none; }
 
@@ -151,7 +149,7 @@ footer a:link {
   color: #fff;
   text-decoration: none;
 }
-		/* === AJUSTE RESPONSIVE PARA NOTION === */
+/* === AJUSTE RESPONSIVE PARA NOTION === */
 html, body {
   margin: 0;
   padding: 0;
@@ -180,19 +178,17 @@ td > span {
   font-size: 0.85rem;
 }
 
+/* ===== NUEVO: padding arriba y abajo del nombre del mes ===== */
+th > span {
+  padding: 5px 0;
+}
+
 tr:first-child th {
   font-size: 1rem;
 }
 
 th .any {
   font-size: 0.75rem;
-}
-
-.boto-next, .boto-prev {
-  width: 24px;
-  height: 24px;
-  font-size: 14px;
-  top: 10px;
 }
 
     </style>
@@ -279,29 +275,9 @@ function calendari(widget, data)
     var titol = document.createElement('th');
     titol.setAttribute('colspan', 7);
 
-    var boto_prev = document.createElement('button');
-    boto_prev.className = 'boto-prev';
-    boto_prev.innerHTML = '&#9666;';
-
-    var boto_next = document.createElement('button');
-    boto_next.className = 'boto-next';
-    boto_next.innerHTML = '&#9656;';
-
-    titol.appendChild(boto_prev);
+    // ==== BOTONES ELIMINADOS ====
     titol.appendChild(document.createElement('span')).innerHTML = 
         mesos[data.getMonth()] + '<span class="any">' + data.getFullYear() + '</span>';
-
-    titol.appendChild(boto_next);
-
-    boto_prev.onclick = function() {
-        data.setMonth(data.getMonth() - 1);
-        calendari(widget, data);
-    };
-
-    boto_next.onclick = function() {
-        data.setMonth(data.getMonth() + 1);
-        calendari(widget, data);
-    };
 
     fila.appendChild(titol);
     e.appendChild(fila);
@@ -377,9 +353,7 @@ calendari(document.getElementById('calendari'), new Date());
 </body>
 </html>
 
-    </script>
-</body>
-</html>
+
 
 
 
